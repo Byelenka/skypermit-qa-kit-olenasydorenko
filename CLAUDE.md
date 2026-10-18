@@ -34,6 +34,8 @@ test-plans/                  # generated one-page test plans (markdown and .docx
   one-page-test-plan/        # test plan from a document or docs folder (assets/compact-reference.docx = Word template)
   low-level-test-case/       # single-check test cases (ID, Title, Doc ref, Role, Priority, Preconditions optional, Steps, Expected result)
     examples/                # reference test cases (API and UI) the skill reads for layout and level of detail
+.claude/agents/
+  tc-verifier.md             # read-only subagent: checks a test case's Steps and Expected result against ../skypermit/docs and code (corresponds / does not correspond / not documented, with references)
 ```
 
 Create folders when first needed. Test case IDs continue from the highest existing ID for the same area in the same folder; never reuse an ID.
