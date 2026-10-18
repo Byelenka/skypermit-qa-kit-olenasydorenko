@@ -22,14 +22,21 @@ Requirements come from `../skypermit/docs/`:
 
 Read the relevant docs before generating anything, and trace each test case back to a doc/section. If docs are ambiguous or listed in `05-open-questions.md`, flag it in the output rather than guessing.
 
-## Planned folder structure
+## Folder structure
 
 ```
-test-cases/        # generated test cases and test plans (markdown)
-.claude/skills/    # project skills for test case / test plan generation
+test-cases/
+  <feature>/                 # one folder per feature or source area, e.g. operator-registration/
+    TC-<AREA>-<NNN>.md       # one low-level test case per file (one check, not a scenario)
+    NOT-GENERATED.md         # rules skipped because the docs do not define them, with reasons
+test-plans/                  # generated one-page test plans (markdown and .docx)
+.claude/skills/
+  one-page-test-plan/        # test plan from a document or docs folder (assets/compact-reference.docx = Word template)
+  low-level-test-case/       # single-check test cases (ID, Title, Doc ref, Role, Priority, Preconditions optional, Steps, Expected result)
+    examples/                # reference test cases (API and UI) the skill reads for layout and level of detail
 ```
 
-Folders are planned and may not exist yet; create them when first needed.
+Create folders when first needed. Test case IDs continue from the highest existing ID for the same area in the same folder; never reuse an ID.
 
 ## Restrictions on `../skypermit`
 
