@@ -25,4 +25,6 @@
 
 **Expected result:**
 
-- The element `operator-session-info` is displayed without a separate login step
+- After the redirect to the operator area, the element `operator-session-info` is displayed without a separate login step
+
+**Note:** The docs do not say where the user lands after submit. The implementation redirects to `/operator/pilots`, and `operator-session-info` is shown only on `/operator*` paths, not on `/register` itself. The redirect is not documented.

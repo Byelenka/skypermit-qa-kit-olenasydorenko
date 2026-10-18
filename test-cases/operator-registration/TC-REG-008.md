@@ -2,7 +2,7 @@
 
 **Title:** Register link is hidden after registration through the Register page
 
-**Doc ref:** 04-frontend-spec.md §Two contracts to hold exactly (operator-register-link shown when logged out)
+**Doc ref:** 04-frontend-spec.md §Two contracts to hold exactly (operator-register-link shown when logged out); 04-frontend-spec.md §Operator portal (registration logs the operator in immediately)
 
 **Role:** Not logged in
 

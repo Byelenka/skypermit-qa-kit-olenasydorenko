@@ -2,7 +2,7 @@
 
 **Title:** Newly registered operator has authorisation level L1
 
-**Doc ref:** 03-api-contract.md §Authentication & authorisation (authorisation_level is no longer self-service)
+**Doc ref:** 03-api-contract.md §Authentication & authorisation (authorisation_level is no longer self-service); 04-frontend-spec.md §Operator portal (registration always starts an operator at L1)
 
 **Role:** Not logged in
 
@@ -15,7 +15,7 @@
 
 **Steps:**
 
-1. Send `POST /api/v1/operators` with a JSON body containing every field except `authorisation_level`, which is not sent, valid values of your own choice:
+1. Send `POST /api/v1/operators` with a JSON body containing the fields below and no `authorisation_level`, valid values of your own choice (only email, password, legal_name and national_id are required per the implementation; this is not stated in the docs, so phone, address_line, city and postal_code are sent as well):
    - email: a valid address not registered yet (e.g. `name@example.com`)
    - password: a password the system accepts (e.g. `Test-Pass-1234`)
    - legal_name: a company name not registered yet (e.g. `Test Aero Ltd`)

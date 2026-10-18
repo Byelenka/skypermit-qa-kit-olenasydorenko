@@ -25,4 +25,6 @@
 
 **Expected result:**
 
-- The element `operator-logout-button` is displayed
+- After the redirect to the operator area, the element `operator-logout-button` is displayed
+
+**Note:** The docs do not say where the user lands after submit. The implementation redirects to `/operator/pilots`, and `operator-logout-button` is shown only on `/operator*` paths. The redirect is not documented.

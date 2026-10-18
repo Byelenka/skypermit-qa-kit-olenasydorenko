@@ -12,3 +12,4 @@ Rules that were skipped because the source docs do not define an expected result
 | Registration is atomic (auth user and profile created together) | Failure behaviour is not documented and the internals are not observable. | 04-frontend-spec.md (Operator portal) |
 | Login with the new credentials after registering | A multi-step scenario that belongs to the login feature, not a single check. | 03-api-contract.md (Authentication & authorisation) |
 | Suspended operator behaviour | Open question, and it is not tied to registration. | 05-open-questions.md §1 |
+| Redirect after successful registration | The implementation redirects to `/operator/pilots`, but no doc says where the user lands. `TC-REG-006` and `TC-REG-007` depend on it for element visibility. | 04-frontend-spec.md (Operator portal) |
