@@ -13,6 +13,10 @@ Claude does **not** write automation test scripts in this repo. Deliverables are
 
 Apply the QA methodology from `~/.claude/CLAUDE.md` (EP, BVA, decision table, state transition) when designing test cases.
 
+## Language
+
+All documents in this repo (test cases, test plans, reports, hook output, comments) must be written in English, regardless of the language the user addresses Claude in.
+
 ## Source of truth
 
 Requirements come from `../skypermit/docs/`:
