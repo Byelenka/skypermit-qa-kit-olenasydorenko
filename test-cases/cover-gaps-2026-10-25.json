@@ -1,0 +1,53 @@
+{
+  "run": { "date": "2026-10-25", "max": 3, "gate": "TIME_WINDOW" },
+  "totals": { "rules_in_docs": 13, "covered_before": 1, "uncovered_before": 12, "selected": 3 },
+  "rules": [
+    {
+      "id": "TIME_WINDOW-02",
+      "gate": "TIME_WINDOW",
+      "condition": "Booked too far in advance",
+      "rule_reference": "TSD-4 §2.2",
+      "cases": [
+        { "id": "TC-GATE-003", "file": "test-cases/flight-request-gates/TC-GATE-003.md", "verdict": "verified", "notes": "" },
+        { "id": "TC-GATE-004", "file": "test-cases/flight-request-gates/TC-GATE-004.md", "verdict": "verified", "notes": "The 06 §1.4 row for the 60-day limit does not say it is measured from submission (stated only for the 6 h rule); the code measures from submission time." }
+      ]
+    },
+    {
+      "id": "TIME_WINDOW-03",
+      "gate": "TIME_WINDOW",
+      "condition": "Duration out of range",
+      "rule_reference": "TSD-4 §3",
+      "cases": [
+        { "id": "TC-GATE-005", "file": "test-cases/flight-request-gates/TC-GATE-005.md", "verdict": "verified", "notes": "" },
+        { "id": "TC-GATE-006", "file": "test-cases/flight-request-gates/TC-GATE-006.md", "verdict": "verified", "notes": "" },
+        { "id": "TC-GATE-007", "file": "test-cases/flight-request-gates/TC-GATE-007.md", "verdict": "verified", "notes": "" },
+        { "id": "TC-GATE-008", "file": "test-cases/flight-request-gates/TC-GATE-008.md", "verdict": "verified", "notes": "08-uml-diagrams.md says the submit branch returns \"200/201 with new state\", which is inconsistent with 422 on a gate failure in 03 and 06 and in the code. Docs verdict kept (422); the UML needs a person's review." }
+      ]
+    },
+    {
+      "id": "TIME_WINDOW-04",
+      "gate": "TIME_WINDOW",
+      "condition": "Falls within curfew — KBP-CTR-3/ODS-CTR-5",
+      "rule_reference": "A-7 §1",
+      "cases": [
+        { "id": "TC-GATE-009", "file": "test-cases/flight-request-gates/TC-GATE-009.md", "verdict": "verified", "notes": "Zone-local timezone is not named in the docs; the code assumes Europe/Kyiv." },
+        { "id": "TC-GATE-010", "file": "test-cases/flight-request-gates/TC-GATE-010.md", "verdict": "verified", "notes": "Same timezone note." },
+        { "id": "TC-GATE-011", "file": "test-cases/flight-request-gates/TC-GATE-011.md", "verdict": "verified", "notes": "Same timezone note." },
+        { "id": "TC-GATE-012", "file": "test-cases/flight-request-gates/TC-GATE-012.md", "verdict": "verified", "notes": "Same timezone note." },
+        { "id": "TC-GATE-013", "file": "test-cases/flight-request-gates/TC-GATE-013.md", "verdict": "verified", "notes": "Same timezone note." },
+        { "id": "TC-GATE-014", "file": "test-cases/flight-request-gates/TC-GATE-014.md", "verdict": "verified", "notes": "Same timezone note." },
+        { "id": "TC-GATE-015", "file": "test-cases/flight-request-gates/TC-GATE-015.md", "verdict": "verified", "notes": "Same timezone note." }
+      ]
+    }
+  ],
+  "counts": { "generated": 13, "verified": 13, "rejected": 0, "docs_silent": 0 },
+  "rejected": [],
+  "docs_silent": [
+    { "item": "Window starting exactly 60 days before submission", "reason": "Exact boundary cannot be hit repeatably without clock control", "recorded_in": "test-cases/flight-request-gates/NOT-GENERATED.md" },
+    { "item": "window_end equal to or before window_start", "reason": "Docs do not say at which step it is refused or with what response", "recorded_in": "test-cases/flight-request-gates/NOT-GENERATED.md" },
+    { "item": "Window touching the curfew bounds exactly (ends 23:00 / starts 05:00)", "reason": "Docs do not say whether the curfew bounds are inclusive", "recorded_in": "test-cases/flight-request-gates/NOT-GENERATED.md" },
+    { "item": "Name of the zone-local timezone", "reason": "Docs name no timezone for curfews; code assumes Europe/Kyiv", "recorded_in": "test-cases/flight-request-gates/NOT-GENERATED.md" }
+  ],
+  "ambiguous": [],
+  "still_uncovered": []
+}

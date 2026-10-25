@@ -1,5 +1,6 @@
 ---
 name: low-level-test-case
+model: sonnet
 description: Write low-level test cases, each verifying exactly one check (not a scenario), as individual markdown files with the fields ID, Title, Doc ref, Role, Priority, Preconditions (optional), Steps, Expected result. Use this skill whenever the user asks for test cases, a test case for a specific rule, boundary or validation check, "cover this requirement with tests", or hands over a spec, doc section or folder and wants concrete checks derived from it, even if they don't say "low-level" or "single check". Not for test plans or multi-step end-to-end scenarios.
 ---
 

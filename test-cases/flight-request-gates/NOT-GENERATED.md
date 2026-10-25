@@ -1,0 +1,9 @@
+# Not generated: flight request gates
+
+| Item | Reason | Doc ref |
+|---|---|---|
+| Lead time of exactly 6 h 00 min (should pass, per "≥ 6 hours") | Lead time is measured from submission to `window_start`. A tester cannot land exactly on 6 h 00 min because time passes between creating and submitting the request, so the case cannot be repeated without clock control. | 06-business-rules.md §1.4 (TSD-4 §2.1) |
+| Window starting exactly 60 days before submission (should pass, per "≤ 60 days") | Same reason: the lead time shrinks between creating the request and submitting it, so the exact boundary cannot be hit repeatably without clock control. TC-GATE-003 (59 d 23 h 55 min) and TC-GATE-004 (60 d 5 min) bracket it. | 06-business-rules.md §1.4 (TSD-4 §2.2) |
+| `window_end` equal to or before `window_start` | The docs say `window_end` must be after `window_start`, but not at which step it is refused (create or submit) or with what response. | 01-data-model.md §FlightRequest (`window_end`); 06-business-rules.md §1.4 (TSD-4 §3) |
+| Window that ends exactly at the curfew start (23:00) or starts exactly at the curfew end (05:00) | The docs say no part of the window may fall inside the curfew, but do not say whether the curfew bounds are inclusive. Only the overlap rule defines touching boundaries (no overlap). | 06-business-rules.md §1.4 (TSD-4 §4, curfew row) |
+| Name of the "zone-local" timezone used to convert curfew times to UTC (affects TC-GATE-009 to TC-GATE-015) | The docs say curfews are in zone-local time but name no timezone, and the zone record has no timezone field. The code assumes Europe/Kyiv for every zone (`lib/curfew.ts`). The cases are written in zone-local time; a tester needs the timezone confirmed. | 01-data-model.md §Time handling; 06-business-rules.md §1.4 (UTC vs. zone-local time) |
